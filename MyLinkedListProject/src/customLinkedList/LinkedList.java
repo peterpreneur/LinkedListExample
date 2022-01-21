@@ -39,4 +39,31 @@ public class LinkedList<T> {
 		}
 		return null;
 	}
+
+	public void remove(T element) {
+		if (head.getElement().equals(element))
+		{
+			head = head.getNext();
+		} else
+		{
+			Node<T> current = head;
+			Node<T> next = head.getNext();
+			
+			while (next != null) 
+			{
+				if (next.getElement().equals(element)) 
+				{
+					current.setNext(next.getNext());
+					if (next.getNext() == null)
+					{
+						tail = current;
+					}
+					return;
+				}
+				
+				current = next;
+				next = next.getNext();
+			}
+		}
+	}
 }
